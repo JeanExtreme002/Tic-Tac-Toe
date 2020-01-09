@@ -1,0 +1,33 @@
+body{
+    cursor: default;
+}
+
+.square{
+    cursor: pointer;
+    font-size: 90px;
+    position: absolute;
+}
+
+.square, body{
+    background: rgb(58,72,99);
+    color: rgb(255,255,255);
+    font-family: Arial;
+}
+
+#game{
+    background: rgb(255,255,255);
+    position: absolute;
+    top: 150px;
+}
+
+#score{
+    font-size: 30px;
+    position: absolute;
+    top: 520px;
+}
+
+#title{
+    font-size: 70px;
+    position: absolute;
+    top: 30px;
+}
