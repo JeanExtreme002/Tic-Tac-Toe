@@ -1,25 +1,15 @@
 ﻿var round = 0;
 var score = [0,0];
-var symbols = ["X","O"];
 
 const sequences = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+const symbols = ["X","O"];
 
 
-function build(size = 120 , spacing = 10){
-
-
-    // Cria campos para os jogadores marcarem com símbolos.
-    for (var i = 0; i < 9; i++){
-        
-        square = document.createElement("div");
-        square.setAttribute("align","center");
-        square.setAttribute("class","square");
-        document.getElementById("game").appendChild(square);
-    }
+function build(size = 100 , spacing = 5){
 
     /* 
-    Ajusta o tamanho e posição dos campos do jogo 
-    de forma que eles fiquem deste jeito:
+    Cria campos para que os jogadores possam 
+    fazer as marcações dessa seguinte forma:
 
         |   |
     -------------
@@ -28,27 +18,31 @@ function build(size = 120 , spacing = 10){
         |   |
     */
 
-    var squares = document.getElementsByClassName("square");
-    var index = 0;
-
     for (var y = 0; y < 3; y++){
-
         for (var x = 0; x < 3; x++){
+            
+            var square = document.createElement("div");
 
-            squares[index].style.width = size + "px";
-            squares[index].style.height = size + "px";
+            square.setAttribute("align", "center");
+            square.setAttribute("class","square");
 
-            squares[index].style.left = ((size + spacing) * x) + "px";
-            squares[index].style.top = ((size + spacing) * y) + "px";
+            square.style.width = size + "px";
+            square.style.height = size + "px";
 
-            index++;
+            square.style.left = (size + spacing) * x + "px";
+            square.style.top = (size + spacing) * y + "px";
+
+            document.getElementById("game").appendChild(square);
         }
     }
 
     // Ajusta o tamanho do tabuleiro.
     var game = document.getElementById("game");
-    game.style.width = squares[0].offsetWidth * 3 + (spacing * 2) + "px";
-    game.style.height = squares[0].offsetHeight * 3 + (spacing * 2) + "px";
+    game.style.width = square.offsetWidth * 3 + spacing * 2 + "px";
+    game.style.height = square.offsetHeight * 3 + spacing * 2 + "px";
+
+    // Define os eventos do jogo.
+    setEvents();
 }
 
 
@@ -87,7 +81,7 @@ function isGameOver(){
 }
 
 
-function mark(event){
+function mark(){
 
     var element = event.target;
 
@@ -129,15 +123,14 @@ function setEvents(){
 }
 
 
-function start(size = 120, spacing = 10){
+function start(size = 100, spacing = 5){
 
     build(size, spacing);
-    setEvents();
     update(size , spacing);
 }
 
 
-function update(size = 120 , spacing = 10){
+function update(size = 100 , spacing = 5){
 
     var w_width = window.innerWidth, w_height = window.innerHeight;
     var squares = document.getElementsByClassName("square");
@@ -153,11 +146,11 @@ function update(size = 120 , spacing = 10){
     // Atualiza o placar do jogo e o coloca no centro da tela.
     var scoreText = document.getElementById("score");
 
-    scoreText.innerHTML = "Player [ " + symbols[0] + " ]: " + score[0] 
-    scoreText.innerHTML += "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" 
-    scoreText.innerHTML += "Player [ " + symbols[1] + " ]: " + score[1];
+    scoreText.innerHTML = `Player [ ${symbols[0]} ]: ${score[0]}`
+    scoreText.innerHTML += "&nbsp".repeat(8);
+    scoreText.innerHTML += `Player [ ${symbols[1]} ]: ${score[1]}`
 
     scoreText.style.left = Math.round(w_width / 2 - (scoreText.offsetWidth / 2)) + "px";
 
-    requestAnimationFrame( function(){update(size,spacing)} );
+    requestAnimationFrame( function(){update(size, spacing)} );
 }

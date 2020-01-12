@@ -3,8 +3,10 @@ estudado por muitas e muitas horas essa linguagem. Esse é o famoso *Jogo da Vel
 onde dois jogadores devem escolher suas marcações ( **X** ou **O** ) para tentar completar uma 
 linha horizontal, vertical ou diagonal.
 
-# Imagem de jogo
+# Imagem do jogo
 ![game-preview](game-preview.png)
 
-Este jogo ainda não possui uma **IA**, logo, não é possível joga-lo sozinho. 
-Mas talvez eu volte aqui e atualize esse repositório conforme vou aprendendo mais sobre a linguagem JavaScript.
+Para inciar o jogo, basta abrir o arquivo ```index.html``` e o mesmo será executado em seu navegador.
+Este jogo não é online e não possui uma **IA**, então chame um amigo para passarem o tempo
+ou resolverem uma questão num mano a mano no *Jogo da Velha*.
+
