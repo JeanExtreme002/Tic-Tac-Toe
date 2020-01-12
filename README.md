@@ -6,7 +6,7 @@ linha horizontal, vertical ou diagonal.
 # Imagem do jogo
 ![game-preview](game-preview.png)
 
-Para inciar o jogo, basta abrir o arquivo ```index.html``` e o mesmo será executado em seu navegador.
+Para inciar o jogo, basta abrir o arquivo ```index.html``` e o mesmo será executado em seu *browser*.
 Este jogo não é online e não possui uma **IA**, então chame um amigo para passarem o tempo
 ou resolverem uma questão num mano a mano no *Jogo da Velha*.
 
