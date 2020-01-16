@@ -18,8 +18,8 @@ function build(size = 100 , spacing = 5){
         |   |
     */
 
-    for (var y = 0; y < 3; y++){
-        for (var x = 0; x < 3; x++){
+    for (let y = 0; y < 3; y++){
+        for (let x = 0; x < 3; x++){
             
             var square = document.createElement("div");
 
@@ -49,12 +49,12 @@ function build(size = 100 , spacing = 5){
 function isGameOver(){
 
     var elements = document.getElementsByClassName("square");
-    var winner = null;
+    var winner = undefined;
 
-    for (var symbol = 0; symbol < symbols.length; symbol++){
-        for (var index = 0; index < sequences.length; index++){
+    for (let symbol = 0; symbol < symbols.length; symbol++){
+        for (let index = 0; index < sequences.length; index++){
 
-            var sequence = sequences[index];
+            let sequence = sequences[index];
 
             // Verifica se algum jogador venceu o jogo.
             if (elements[sequence[0]].innerHTML == symbols[symbol] && 
@@ -99,7 +99,7 @@ function mark(){
 
     // Coloca no campo o símbolo do jogador.
     element.innerHTML = symbols[round % 2];
-    round++;
+    ++round;
 }
 
 
@@ -107,18 +107,18 @@ function reset(){
 
     round = 0;
 
-    elements = document.getElementsByClassName("square");
-    for (var i = 0; i < elements.length; i++){
-        elements[i].innerHTML = "";
+    var elements = document.getElementsByClassName("square");
+    for (let element of elements){
+        element.innerHTML = "";
     }
 }
 
 
 function setEvents(){
 
-    elements = document.getElementsByClassName("square");
-    for (var i = 0; i < elements.length; i++){
-        elements[i].addEventListener("click", mark);
+    var elements = document.getElementsByClassName("square");
+    for (let element of elements){
+        element.addEventListener("click", mark);
     }
 }
 
